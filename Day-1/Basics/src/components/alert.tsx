@@ -1,8 +1,15 @@
+import { ReactNode } from "react"
+interface AlertProps {
+  children : ReactNode
+  onClose : () => void;
+}
 
-
-const Alert = () => {
+const Alert = ({children, onClose} : AlertProps) => {
   return (
-    <div className='alert alert-primary'>Alert</div>
+    <div className='alert alert-primary alert-dismissable'>
+      {children}
+      <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={onClose}></button>
+    </div>
   )
 }
 
